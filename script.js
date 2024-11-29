@@ -1,5 +1,11 @@
 console.log("hello")
 
+let humanScore = 0 ;
+let ComputerScore = 0 ;
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+playRound(humanSelection,computerSelection);
+
 
 // main function 
 function getComputerChoice(){
@@ -32,6 +38,30 @@ function getHumanChoice(){
     }
 }
 
-console.log(getHumanChoice());
-console.log(getComputerChoice());
+function playRound(humanChoice,computerChoice){
+    
+    const winconditions = {rock:"scissors", paper:"rock", scissors:"paper"};
+    
+    if (humanChoice === computerChoice){
+       console.log("Tie ...!"+" "+ "try again !")
+    }
+
+    else if (winconditions[humanChoice] === computerChoice){
+        console.log("You win"+" " + "You got a one point !")
+        humanScore += 1;
+    }
+
+    else if (winconditions[computerChoice] === humanChoice){
+        console.log ("Computer win"+" "+"Never give up ")
+        ComputerScore += 1;
+    }
+
+    else{
+        console.log("Please enter valid input")
+    }
+}
+
+
+
+console.log(playRound());
 
